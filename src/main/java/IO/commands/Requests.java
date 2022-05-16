@@ -6,9 +6,10 @@ import java.util.regex.Pattern;
 public enum Requests {
     EXIT("(exit|Exit|EXIT)"),
     EVALUATE("(evaluate|Evaluate|EVALUATE)"),
-    FORMULAR(".+=.+"),
+    FORMULAR(".+=(.|^=)+"),
     READ("(read|Read|READ)[(table|Table|TABLE)]?"),
-    WRITE("(write|Write|WRITE)[(table|Table|TABLE)]?");
+    WRITE("(write|Write|WRITE)[(table|Table|TABLE)]?"),
+    CSV("(csv|Csv|CSV)[(table|Table|TABLE)]?");
     final String regex;
 
     Requests(String regex){

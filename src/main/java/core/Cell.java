@@ -1,4 +1,4 @@
-package core.util;
+package core;
 
 
 /**
@@ -49,6 +49,5 @@ public class Cell {
         result[0]=Integer.parseInt(cell.replaceAll(REGEX_ALPHA,""))-1;
         return result;
     }
-
 
 }

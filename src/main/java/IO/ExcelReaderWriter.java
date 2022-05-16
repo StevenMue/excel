@@ -22,7 +22,7 @@ public class ExcelReaderWriter {
     private static final String FILE_NAME_WRITE = "./Excel3000Write.xlsx";
 
 
-    private XSSFWorkbook workbook;
+    XSSFWorkbook workbook;
 
     public XSSFWorkbook getWorkbook() {
         return workbook;

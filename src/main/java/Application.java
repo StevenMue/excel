@@ -4,11 +4,12 @@ import core.Excel3000;
 import java.util.Optional;
 
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Excel3000 excel3000= new Excel3000();
         IO io = new IO();
         Optional<String[]> optional;
-        ExcelReaderWriter excelWriter = new ExcelReaderWriter();
+        ExcelReaderWriter excelWriter = new CSVWriter();
+
         while (true) {
             optional =  io.getNextLine();
             if (optional.isPresent()) {
@@ -25,8 +26,13 @@ public class Application {
                     case "EVALUATE" -> {
                         excel3000.evaluate();
                     }
+                    case "CSV" -> {
+                        CSVWriter csvWriter = (CSVWriter)excelWriter;
+                        csvWriter.excelToCSV();
+                    }
                     default -> {
-                        excel3000.setCell(optional.get()[0].replace("$", ""), optional.get()[1]);
+                        optional.ifPresent(strings ->
+                                excel3000.setCell(strings[0].replace("$", ""), strings[1]));
                     }
                 }
             }
